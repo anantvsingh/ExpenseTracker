@@ -9,6 +9,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import AllExpenses from './screens/AllExpenses';
 
 
 
@@ -18,9 +19,7 @@ function App () {
   
 
   return (
-    <View>
-      <Text>Hello Expense</Text>
-    </View>
+    <AllExpenses/>
   );
 };
 
