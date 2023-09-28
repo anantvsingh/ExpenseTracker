@@ -16,6 +16,7 @@ import RecentExpenses from './screens/RecentExpenses';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ManageExpenses from './screens/ManageExpenses';
 import { GlobalStyles } from './constants/styles/colors';
+import IconButton from './UI/IconButton';
 import Icon from 'react-native-vector-icons/Ionicons'
 
 
@@ -25,13 +26,16 @@ const Tab=createBottomTabNavigator();
 function App () {
   function BottomTab(){
     return (
-      <Tab.Navigator screenOptions={{
+      <Tab.Navigator screenOptions={({navigation})=>({
         headerStyle:{backgroundColor:GlobalStyles.colors.primary500},
         headerTintColor:"white",
         tabBarStyle:{backgroundColor:GlobalStyles.colors.primary500},
         tabBarActiveTintColor:"white",
-        tabBarLabelStyle:{fontSize:12,fontWeight:'bold'}
-      }}>
+        tabBarLabelStyle:{fontSize:12,fontWeight:'bold'},
+        headerRight:(()=><IconButton name='add' size={30} color={'white'} onPress={
+          ()=>navigation.navigate('ManageExpenses')
+        }/>)
+      })}>
       <Tab.Screen name="RecentExpenses" component={RecentExpenses} options={{
         title:'Recent Expenses',
         tabBarLabel:'Recent',
@@ -48,8 +52,14 @@ function App () {
   }
 
   return (
-    <NavigationContainer>
-    <Stack.Navigator>
+    <NavigationContainer >
+    <Stack.Navigator screenOptions={{
+      headerStyle:{backgroundColor:GlobalStyles.colors.primary500},
+        headerTintColor:"white",
+        tabBarStyle:{backgroundColor:GlobalStyles.colors.primary500},
+        tabBarActiveTintColor:"white",
+        tabBarLabelStyle:{fontSize:12,fontWeight:'bold'},
+    }}>
       <Stack.Screen name='Expense Overview' component={BottomTab} options={{
         headerShown:false
       }}/>
