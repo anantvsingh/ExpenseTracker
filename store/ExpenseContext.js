@@ -58,6 +58,7 @@ function expenseReducer(state,action){
                 (expense)=>expense.id===action.payload.id
             );
             const updatableExpense=state[updatableExpenseIndex];
+            //overwriting the existing data using object
             const updateItem={...updatableExpense,...action.payload.data};
             const updatedExpenses=[...state];
             updatedExpenses[updatableExpenseIndex]=updateItem;
