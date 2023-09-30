@@ -18,6 +18,7 @@ import ManageExpenses from './screens/ManageExpenses';
 import { GlobalStyles } from './constants/styles/colors';
 import IconButton from './UI/IconButton';
 import Icon from 'react-native-vector-icons/Ionicons'
+import ExpenseContextProvider from './store/ExpenseContext';
 
 
 const Stack=createNativeStackNavigator();
@@ -52,6 +53,7 @@ function App () {
   }
 
   return (
+    <ExpenseContextProvider>
     <NavigationContainer >
     <Stack.Navigator screenOptions={{
       headerStyle:{backgroundColor:GlobalStyles.colors.primary500},
@@ -66,6 +68,7 @@ function App () {
       <Stack.Screen name='ManageExpenses' component={ManageExpenses}/>
     </Stack.Navigator>
     </NavigationContainer>
+    </ExpenseContextProvider>
     // <NavigationContainer>
     //   <Tab.Navigator>
     //   <Tab.Screen name="RecentExpenses" component={RecentExpenses} />

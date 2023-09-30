@@ -1,4 +1,9 @@
-import { Text } from "react-native";
+
 export function DateStyle(date){
-    return <Text>{date.getFullYear()}-{date.getMonth()+1}-{date.getDate()}</Text>;
+    return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+    
+}
+
+export function recentdate(date,days){
+    return new Date(date.getFullYear(),date.getMonth(),date.getDate()-days);
 }
