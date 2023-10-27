@@ -6,7 +6,7 @@ import { recentdate } from "../util/date";
 function RecentExpenses(){
     const expenseCtx=useContext(ExpenseCtx);
 
-    const recentExpense=expenseCtx.expense.filter((expense)=>{
+    const recentExpense=expenseCtx.expenses.filter((expense)=>{
         const today=new Date();
         const last7days=recentdate(today,7);
         return expense.Date>last7days;

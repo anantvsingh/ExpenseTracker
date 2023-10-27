@@ -5,6 +5,6 @@ import { useContext } from "react";
 function AllExpenses(){
     const expenseCtx=useContext(ExpenseCtx)
 
-    return <ExpenseOutput expenses={expenseCtx.expense} periodName={"All"}/>
+    return <ExpenseOutput expenses={expenseCtx.expenses} periodName={"All"}/>
 }
 export default AllExpenses;

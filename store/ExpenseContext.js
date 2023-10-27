@@ -37,7 +37,7 @@ const DUMMY_DATA=[{
 
 
 export const ExpenseCtx=createContext({
-    id:()=>{},
+    expenses:[],
     addExpense:({description,amount,Date})=>{},
     deleteExpense:(id)=>{},
     updateExpense:(id,{description,amount,Date})=>{}
@@ -86,7 +86,7 @@ function ExpenseContextProvider({children}){
     }
 
     const value={
-        expense:expenseState,
+        expenses:expenseState,
         addExpense:addExpense,
         deleteExpense:deleteExpense,
         updateExpense:updateExpense
